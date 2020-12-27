@@ -1,0 +1,37 @@
+Head Pose Detection: The project is designed to classify the head pose in a live video.
+
+Two classes are made for:
+1. Face Detection: Opencv's caffemodel trained for face detection (pertained on WIDER image dataset having ~ 32k face images) is loaded and used to identify faces in the video.
+2. Landmark Detection: Five main landmarks on the face can be: nose tip, eye corners, lip corners and chin as they define the main features in a face. A pre-trained model for facial landmark detector provided by Yin Guobing has been used to capture the landmarks on the face.
+
+The Head_Pose_Detection.py file is written to convert the 3D points to 2D points and call the functions from the Face Detection and Landmark Detection classes to identity the head poses in a live video.
+
+NOTE: Run the Head_Pose_Detection.py file.
+-----------------------------------------------------------------------
+Answer 1: Bounding boxes around the faces have been drawn using the find_faces() and draw_boxes() functions. A pretrained caffemodel has been used to identify faces. Blobs are obtained from the images and faces having confidence more than 0.5 have been considered for indetification and landmark detection.
+
+Answer 2: All the faces with confidence 0.5 and above are being marked by green bounding boxes.
+
+Answer 3: Facial landmarks (nose tip, eye corners, lip corners and chin) have been identified by calling the functions in the Landmark Detection class. A pre-trained model by for facial landmark detector provided by Yin Guobing has been used to capture the landmarks on the face. 
+
+Answer 4: The head pose detection is being done by calculating the angle difference between the 3D points and 2D projected points. Four head poses identified are: up, down, left and right. All the faces in the frame with confidence more than 0.5 are getting detected along with the landmark detection.
+
+Answer 5: The head pose tracker works in real time with a webcam by executing the Head_Pose_Detection.py file. 
+
+A sample video is attached in the folder. 
+
+Additional Problems:
+- If the head goes out of focus and comes back in, will your algorithm start tracking again? 
+Yes, it does start tracking the faces again.
+
+- How are you prioritizing tracking for objects in focus?
+Unable to do that as of now 
+
+- Are you able to track with foreign objects like headphones, spectacles, etc? 
+Unable to do that as of now
+
+- If there is occlusion (example: if someone is drinking from a bottle) will the tracking stop? 
+Sometimes, it does stop tracking in cases of occlusion.
+
+
+
